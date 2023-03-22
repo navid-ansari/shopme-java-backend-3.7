@@ -29,7 +29,6 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.is;
 
@@ -68,7 +67,7 @@ class ProductsControllerTest {
         products.add(product);
 
         Mockito.when(productsServiceMock.getProducts()).thenReturn(products);
-        this.mockMvc.perform(get("/api/v1/products")).andDo(print())
+        this.mockMvc.perform(get("/api/v1/products"))
                 .andExpect(status().is(200))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(1)))
@@ -105,7 +104,7 @@ class ProductsControllerTest {
 
         Mockito.when(productsServiceMock.getProductById(id)).thenReturn(product);
 
-        this.mockMvc.perform(get("/api/v1/products/{id}", id)).andDo(print())
+        this.mockMvc.perform(get("/api/v1/products/{id}", id))
             .andExpect(status().is(200))
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id", is(1)))

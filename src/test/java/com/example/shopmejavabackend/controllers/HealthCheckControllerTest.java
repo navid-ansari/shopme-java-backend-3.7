@@ -21,7 +21,6 @@ import org.springframework.web.client.HttpServerErrorException;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -42,7 +41,7 @@ class HealthCheckControllerTest {
     @DisplayName("status 200 : check Healthcheck API")
     void getHealthCheck() throws Exception{
         when(healthCheckServiceMock.getHealthCheck()).thenReturn("Healthcheck successfull");
-        this.mockMvc.perform(get("/api/v1/healthcheck")).andDo(print()).andExpect(status().is(200))
+        this.mockMvc.perform(get("/api/v1/healthcheck")).andExpect(status().is(200))
                 .andExpect(content().string("Healthcheck successfull"));
     }
 
