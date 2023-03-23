@@ -34,7 +34,7 @@ public class ProductsController {
         try {
             return this.productsService.getProductById(id);
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             throw e;
             //throw new Exception(e.getMessage());
         }
@@ -47,13 +47,13 @@ public class ProductsController {
     }
 
     @ExceptionHandler
-    public ResponseEntity<?> handlingInternalServerError(HttpServerErrorException.BadGateway ex) {
+    public ResponseEntity<?> handlingBadGatewayError(HttpServerErrorException.BadGateway ex) {
         // code to be executed when the exception is thrown (logs, ...)
         return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
     }
 
     @ExceptionHandler
-    public ResponseEntity<?> handlingInternalServerError(HttpServerErrorException.ServiceUnavailable ex) {
+    public ResponseEntity<?> handlingServiceUnavailableError(HttpServerErrorException.ServiceUnavailable ex) {
         // code to be executed when the exception is thrown (logs, ...)
         return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
     }

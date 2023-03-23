@@ -34,13 +34,13 @@ public class HealthCheckController {
     }
 
     @ExceptionHandler
-    public ResponseEntity<?> handlingInternalServerError(HttpServerErrorException.BadGateway ex) {
+    public ResponseEntity<?> handlingBadGatewayError(HttpServerErrorException.BadGateway ex) {
         // code to be executed when the exception is thrown (logs, ...)
         return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
     }
 
     @ExceptionHandler
-    public ResponseEntity<?> handlingInternalServerError(HttpServerErrorException.ServiceUnavailable ex) {
+    public ResponseEntity<?> handlingServiceUnavailableError(HttpServerErrorException.ServiceUnavailable ex) {
         // code to be executed when the exception is thrown (logs, ...)
         return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
     }
