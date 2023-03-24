@@ -67,5 +67,5 @@ jobs:
         tags: latest
         registry: docker.io
         dockerfile: docker.io
-        username: navidansari25july@gmail.com
-        password: Navideng1!
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
