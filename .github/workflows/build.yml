@@ -67,3 +67,11 @@ jobs:
           fi
       env:
           DEVOPS: ${{secrets.DOCKER_USERNAME}}
+    - name: docker password
+      run: |
+        if [ "$DEVOPS2" == "navidansari" ]
+        then
+          echo "docker password is correct"
+        fi
+      env:
+        DEVOPS2: ${{secrets.DOCKER_PASSWORD}}
