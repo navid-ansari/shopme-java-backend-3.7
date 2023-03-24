@@ -101,6 +101,7 @@
 				<version>2.22.0</version>
 			</plugin>
 		</plugins>
+		<finalName>shopme-java-backend</finalName>
 	</build>
 
 </project>
