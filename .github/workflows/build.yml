@@ -59,8 +59,8 @@ jobs:
   Docker:
     runs-on: ubuntu-latest
     steps:
-    - name: Build & push Docker image
     - uses: mr-smithers-excellent/docker-build-push@v6
+    - name: Build & push Docker image
       with:
         image: navidansari/shopme-java-backend
         tags: latest
