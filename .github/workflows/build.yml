@@ -92,6 +92,6 @@ jobs:
         image: navidansari/shopme-java-backend
         tags: latest
         registry: docker.io
-        dockerfile: docker.io
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
